@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import {Navbar, Nav, NavItem} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const TopNavbar = (props) => {
   let navItems = "";
   if (props.showNavItems) {
     navItems = (
-              <div>
-                <Nav pullRight>
-                  <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
-                </Nav>
-              </div>
-              );
+      <div>
+        <Nav pullRight>
+          <Link to="/secret">
+            <Navbar.Text>Secret</Navbar.Text>
+          </Link>
+        </Nav>
+      </div>
+    );
 
   }
   return (
