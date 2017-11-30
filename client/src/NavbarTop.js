@@ -5,25 +5,22 @@ import {Link} from "react-router-dom";
 
 const NavbarTop = (props) => {
   return (
-    <Navbar collapseOnSelect>
-      <Navbar.Collapse>
-        <Nav pullRight>
-          <Link to="/">
-            <Navbar.Text className="text-uppercase">Home</Navbar.Text>
-          </Link>
-          <Link to="/state">
-            <Navbar.Text className="text-uppercase">Browse by State</Navbar.Text>
-          </Link>
-          <Link to="/about">
-            <Navbar.Text className="text-uppercase">About</Navbar.Text>
-          </Link>
-        </Nav>
-      </Navbar.Collapse>
+    <Navbar>
+      <Nav pullRight>
+        <Link to="/">
+          <Navbar.Text className="navText">Home</Navbar.Text>
+        </Link>
+        <Link to="/state">
+          <Navbar.Text className="navText">Browse by State</Navbar.Text>
+        </Link>
+        <Link to="/about">
+          <Navbar.Text className="navText">About</Navbar.Text>
+        </Link>
+      </Nav>
     </Navbar>
   );
 };
 
-NavbarTop.propTypes = {
-};
+NavbarTop.propTypes = {};
 
 export default NavbarTop;
