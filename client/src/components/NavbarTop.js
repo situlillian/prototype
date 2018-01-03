@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {Navbar, Nav, NavItem} from "react-bootstrap";
+// import PropTypes from "prop-types";
+import {Navbar, Nav} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const NavbarTop = (props) => {
@@ -16,11 +16,14 @@ const NavbarTop = (props) => {
         <Link to="/about">
           <Navbar.Text className="navText">About</Navbar.Text>
         </Link>
+        <Link to="/create">
+          <Navbar.Text className="navText">Add Shelter</Navbar.Text>
+        </Link>
       </Nav>
     </Navbar>
   );
 };
 
-NavbarTop.propTypes = {};
+// NavbarTop.propTypes = {};
 
 export default NavbarTop;

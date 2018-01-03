@@ -14,7 +14,8 @@ class StateList extends Component {
   render() {
     return (
       <div>
-        <h1>StateList</h1>
+        <h1>Shelters by State</h1>
+
       </div>
     );
   }

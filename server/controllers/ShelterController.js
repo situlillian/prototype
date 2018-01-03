@@ -8,19 +8,20 @@ export function create(req, res, next) {
     .catch(err => next(err));
 }
 
-export function update(req, res, next) {
-  ShelterModel.findOne({ _id: req.params.id })
-    .exec()
-    .then(shelter => {
-      if (!shelter) {
-        return next("No Shelter Found");
-      }
+export function list(request, response) {
+  ShelterModel.find({}).exec().then(shelters => {
+    return response.json(shelters);
+  });
+}
 
-      shelter.title = req.params.title;
-      return shelter.save();
-    })
-    .then(shelter => {
-      return req.json(shelter);
-    })
-    .catch(err => next(err));
+export function show(request, response) {
+  ShelterModel.findById(request.params.id).exec().then(shelter => {
+    return response.json(shelter);
+  });
+}
+
+export function remove(request, response) {
+  ShelterModel.findByIdAndRemove(request.params.id).exec().then(shelters => {
+    return response.json(shelters);
+  });
 }

@@ -9,6 +9,10 @@ const shelterSchema = new Schema({
     type: String,
     required: true
   },
+  phone: {
+    type: String,
+    required: true
+  },
   street: {
     type: String,
     required: true
@@ -27,4 +31,4 @@ const shelterSchema = new Schema({
   }
 });
 
-export default mongoose.model("List", listSchema);
+export default mongoose.model("Shelter", shelterSchema);
