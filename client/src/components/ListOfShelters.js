@@ -5,22 +5,20 @@ import {Link} from "react-router-dom";
 function ListofShelters(props) {
   let shelterDivs = props.shelters.map((s, i) => {
     return (
-      <div key={i}>
-        <h2>Shelter ID: {s._id}</h2>
-        <ul>
-          <li>Name: {s.name}</li>
-          <li>Phone: {s.phone}</li>
-          <li>Address: {s.street}, {s.city}, {s.state} {s.zipcode}</li>
-        </ul>
+      <div className="shelter" key={i}>
+        <h4 className="shelterName">{s.name}</h4>
+        <p>{s.phone}</p>
+        <p>Address: {s.street}, {s.city}, {s.state} {s.zipcode}</p>
         <Link to={"/state/" + s._id}>View</Link>
+        <p>Shelter ID: {s._id}</p>
         <button onClick={() => props.deleteShelter(s._id)}>Remove</button>
       </div>
     );
   });
 
   return (
-    <div>
-      <h1>A List of All Shelters</h1>
+    <div className="text-left state">
+      <h1 className="text-center">A List of All Shelters</h1>
       {shelterDivs}
     </div>
   );

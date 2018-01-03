@@ -26,7 +26,7 @@ h2 {
 .shelterName {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  font-size: 1em;
+  font-size: 1.5em;
   color: #424242;
   text-transform: capitalize;
 }
@@ -35,6 +35,7 @@ p {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   color: #424242;
+  line-height: 1.1em;
 }
 
 .navText {
@@ -43,4 +44,20 @@ p {
   font-size: 1.2em;
   color: #424242;
   text-transform: uppercase;
+}
+
+.state {
+  padding: 1em;
+}
+
+.logo {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #EE7674;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.shelter {
+  border: 1px solid black;
+  margin-bottom: 2em;
 }

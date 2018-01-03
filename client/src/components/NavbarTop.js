@@ -6,6 +6,9 @@ import {Link} from "react-router-dom";
 const NavbarTop = (props) => {
   return (
     <Navbar>
+      <Link to="/">
+        <Navbar.Text className="logo">Safe Space Project</Navbar.Text>
+      </Link>
       <Nav pullRight>
         <Link to="/">
           <Navbar.Text className="navText">Home</Navbar.Text>
