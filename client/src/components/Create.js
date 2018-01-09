@@ -7,7 +7,7 @@ function Create () {
       <h1>Add a Shelter to our Database</h1>
       <CreateShelter />
     </div>
-  )
+  );
 }
 
 export default Create;

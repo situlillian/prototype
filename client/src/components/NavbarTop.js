@@ -3,7 +3,7 @@ import React from "react";
 import {Navbar, Nav} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const NavbarTop = (props) => {
+function NavbarTop () {
   return (
     <Navbar>
       <Link to="/">
@@ -25,8 +25,6 @@ const NavbarTop = (props) => {
       </Nav>
     </Navbar>
   );
-};
-
-// NavbarTop.propTypes = {};
+}
 
 export default NavbarTop;

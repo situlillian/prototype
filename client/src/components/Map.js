@@ -1,23 +1,29 @@
-import React from "react";
-import ReactDOM from 'react-dom';
+import React, { Component } from  "react";
+import ReactDOM from "react-dom";
 
-export class Map extends React.Component {
+class Map extends React.Component {
   componentDidMount() {
     this.loadMap();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.google !== this.props.google) {
+      this.loadMap();
+    }
   }
 
   loadMap() {
     if (this.props && this.props.google) {
       // google is available
-      const google = this.props;
+      const {google} = this.props;
       const maps = google.maps;
 
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
-      let zoom = 14;
-      let lat = 37.774929;
-      let lng = -122.419416;
+      let zoom = 12;
+      let lat = 30.266256;
+      let lng = -97.736922;
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
@@ -25,14 +31,19 @@ export class Map extends React.Component {
       });
       this.map = new maps.Map(node, mapConfig);
     }
-    // ...
   }
 
   render() {
+    const style = {
+      width: '100vw',
+      height: '75vh'
+    };
     return (
-      <div ref='map'>
-        Loading map...
+      <div ref="map" style={style}>
+        loading map...
       </div>
     );
   }
 }
+
+export default Map;
