@@ -9,6 +9,14 @@ const shelterSchema = new Schema({
     type: String,
     required: true
   },
+  email: {
+    type: String,
+    required: false
+  },
+  website: {
+    type: String,
+    required: false
+  },
   phone: {
     type: String,
     required: true

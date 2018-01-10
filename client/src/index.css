@@ -2,25 +2,48 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #F7F7F7;
 }
 
-div {
-  border: 1px solid red;
+div, li {
+  box-sizing: border-box;
 }
 
 h1 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.9em;
   color: #EE7674;
 }
 
-h2 {
+h2, h3,  h4 {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #616161;
   text-transform: uppercase;
+}
+
+table > tr {
+  padding-top: 10em;
+}
+
+.white {
+  background-color: #fff;
+  border: .5px solid #f7f7f7;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.footer {
+  /* position:fixed; */
+  padding: 2em;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  height: 5em;
+  background-color: #ebebeb;
+  border-top: .5px solid #DBDBDB;
 }
 
 .shelterName {
@@ -35,7 +58,7 @@ p {
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   color: #424242;
-  line-height: 1.1em;
+  line-height: 1.2em;
 }
 
 .navText {
@@ -51,13 +74,53 @@ p {
 }
 
 .logo {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Pacifico', cursive;
   color: #EE7674;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 3em;
+}
+.logo:hover {
+
 }
 
 .shelter {
   border: 1px solid black;
   margin-bottom: 2em;
+}
+
+/* .mapDiv {
+  border: 2px solid green;
+} */
+
+.submitDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-start; */
+  width: auto;
+  border: 1px solid #EE7674;
+  padding: 4%;
+}
+
+.submitDiv > div {
+  padding: .6em;
+  margin: 0;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #ebebeb;
+}
+
+.footer {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .9em;
+  color: #424242;
+}
+
+.nav > li {
+  border-bottom: 4px solid #f7f7f7;
+}
+
+.nav > li:hover {
+  border-bottom: 4px solid #EE7674;
 }

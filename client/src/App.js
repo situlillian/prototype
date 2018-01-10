@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import NavbarTop from "./components/NavbarTop";
-import MapContainer from "./components/MapContainer";
+import MapContainerContainer from "./containers/MapContainerContainer";
 import ListOfSheltersContainer from "./containers/ListOfSheltersContainer";
 import About from "./components/About";
-import CreateShelterContainer from "./containers/CreateShelterContainer";
+import Create from "./components/Create";
+import Footer from "./components/Footer";
 
 class App extends Component {
   constructor() {
@@ -24,14 +25,15 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavbarTop />
-          <div className="container-fluid">
+          <div className="container">
             <Switch>
-              <Route exact path="/" component={MapContainer} />
+              <Route exact path="/" component={MapContainerContainer} />
               <Route exact path="/state" component={ListOfSheltersContainer} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/create" component={CreateShelterContainer} />
+              <Route exact path="/create" component={Create} />
             </Switch>
           </div>
+          <Footer />
         </div>
       </BrowserRouter>
     );

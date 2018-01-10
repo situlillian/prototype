@@ -9,6 +9,8 @@ class CreateShelter extends React.Component {
       shelter: {
         image: "",
         name: "",
+        email: "",
+        website: "",
         phone: "",
         street: "",
         city: "",
@@ -23,7 +25,7 @@ class CreateShelter extends React.Component {
     if (this.state.isSubmitted) {
       return (
         <div>
-          <h1>Thank you for your submission!</h1>
+          <h3>Thank you for your submission!</h3>
           <Link to="/state">
             <p>View All Shelters</p>
           </Link>
@@ -35,8 +37,8 @@ class CreateShelter extends React.Component {
       );
     } else {
       return (
-        <div>
-          <form onSubmit={(e) => {
+        <div className="row" style={{display: 'flex', justifyContent: 'center'}}>
+          <form className="submitDiv" onSubmit={(e) => {
             e.preventDefault();
             if (this.props.createShelter) {
               this.props.createShelter(this.state.shelter);
@@ -44,15 +46,15 @@ class CreateShelter extends React.Component {
             this.setState({isSubmitted: !this.state.isSubmitted});
             console.log(this.state.isSubmitted);
           }}>
-            <div>
+            {/* <div className="col-4">
               Image: <input onChange={(e) => {
                 const shelter = {image: e.target.value};
                 this.setState({
                   shelter: Object.assign(this.state.shelter, shelter)
                 });
               }} />
-            </div>
-            <div>
+            </div> */}
+            <div className="col-4">
               Shelter Name: <input onChange={(e) => {
                 const shelter = {name: e.target.value};
                 this.setState({
@@ -60,7 +62,23 @@ class CreateShelter extends React.Component {
                 });
               }} />
             </div>
-            <div>
+            <div className="col-4">
+              Contact Email: <input onChange={(e) => {
+                const shelter = {email: e.target.value};
+                this.setState({
+                  shelter: Object.assign(this.state.shelter, shelter)
+                });
+              }} />
+            </div>
+            <div className="col-4">
+              Website: <input onChange={(e) => {
+                const shelter = {website: e.target.value};
+                this.setState({
+                  shelter: Object.assign(this.state.shelter, shelter)
+                });
+              }} />
+            </div>
+            <div className="col-4">
               Phone Number: <input onChange={(e) => {
                 const shelter = {phone: e.target.value};
                 this.setState({
@@ -68,7 +86,7 @@ class CreateShelter extends React.Component {
                 });
               }} />
             </div>
-            <div>
+            <div className="col-4">
               Street Address: <input onChange={(e) => {
                 const shelter = {street: e.target.value};
                 this.setState({
@@ -76,7 +94,7 @@ class CreateShelter extends React.Component {
                 });
               }} />
             </div>
-            <div>
+            <div className="col-4">
               City: <input onChange={(e) => {
                 const shelter = {city: e.target.value};
                 this.setState({
@@ -84,19 +102,19 @@ class CreateShelter extends React.Component {
                 });
               }} />
             </div>
-            <div>
+            <div className="col-4">
               State: <select onChange={(e) => {
                 const shelter = {state: e.target.value};
                 this.setState({
                   goat: Object.assign(this.state.shelter, shelter)
                 });
               }} >
+                <option>Select State</option>
                 <option value="CA">CA</option>
-                <option value="NM">NM</option>
                 <option value="TX">TX</option>
               </select>
             </div>
-            <div>
+            <div className="col-4">
               Zipcode: <input onChange={(e) => {
                 const shelter = {zipcode: e.target.value};
                 this.setState({
@@ -104,7 +122,7 @@ class CreateShelter extends React.Component {
                 });
               }} />
             </div>
-            <button type="submit">Add shelter!</button>
+            <button type="submit" className="btn-block">Submit Shelter</button>
           </form>
         </div>
       );

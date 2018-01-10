@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import CreateShelter from "./CreateShelter"
+import CreateShelterContainer from "../containers/CreateShelterContainer"
 
 function Create () {
   return (
-    <div>
-      <h1>Add a Shelter to our Database</h1>
-      <CreateShelter />
+    <div className="white">
+      <h1>Submit A Safe Space</h1>
+      <CreateShelterContainer />
+      <br />
+      <p>Please fill all fields prior to submission. This helps ensure we have as much information as possible regarding each safe space.</p>
     </div>
   );
 }
