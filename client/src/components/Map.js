@@ -46,15 +46,15 @@ class Map extends React.Component {
       this.map = new maps.Map(node, mapConfig);
 
       // new marker test
-      // const marker = new google.maps.Marker({
-      //   position: {
-      //     lat: lat,
-      //     lng: lng
-      //   },
-      //   map: this.map,
-      //   title: "Hello World!"
-      // });
-      //
+      const marker = new google.maps.Marker({
+        position: {
+          lat: lat,
+          lng: lng
+        },
+        map: this.map,
+        title: "Hello World!"
+      });
+
       // geocode
       const geocoder = new google.maps.Geocoder();
       // from shelter array
@@ -71,7 +71,7 @@ class Map extends React.Component {
               position: results[0].geometry.location
             });
           } else {
-            alert("Geocode was not successful for the following reason: " + status);
+            alert("Geocode was not successful for the following reason: " + status + " for " + address);
           }
         });
       });
@@ -79,18 +79,6 @@ class Map extends React.Component {
   }
 
   render() {
-    let shelterDivs = this.props.shelters.map((s, i) => {
-      console.log(s);
-      return (
-        <div className="shelter col-sm-6 col-lg-4" key={i}>
-          <h4 className="shelterName">{s.name}</h4>
-          <p>{s.phone}</p>
-          <p>{s.street}, {s.city}, {s.state} {s.zipcode}</p>
-          <Link to={"/state/" + s._id}>View</Link>
-        </div>
-      );
-    });
-
     // map style
     const style = {
       width: "100%",
@@ -102,9 +90,6 @@ class Map extends React.Component {
       <div>
         <div ref="map" style={style}>
           loading map...
-        </div>
-        <div className="text-left state row">
-          {shelterDivs}
         </div>
       </div>
     );

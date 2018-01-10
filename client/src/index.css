@@ -28,6 +28,17 @@ table > tr {
   padding-top: 10em;
 }
 
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  color: #424242;
+  line-height: 1.2em;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .white {
   background-color: #fff;
   border: .5px solid #f7f7f7;
@@ -54,18 +65,11 @@ table > tr {
   text-transform: capitalize;
 }
 
-p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-  color: #424242;
-  line-height: 1.2em;
-}
-
 .navText {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  font-size: 1.2em;
   color: #424242;
+  font-size: 1.2em;
   text-transform: uppercase;
 }
 
@@ -121,6 +125,12 @@ p {
   border-bottom: 4px solid #f7f7f7;
 }
 
-.nav > li:hover {
+/* .nav > li:hover {
   border-bottom: 4px solid #EE7674;
+  color: #424242;
+} */
+
+.active {
+  border-bottom: 4px solid #EE7674;
+  color: #424242;
 }

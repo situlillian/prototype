@@ -3,19 +3,6 @@ import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 
 function ListofShelters(props) {
-  // let shelterDivs = props.shelters.map((s, i) => {
-  //   return (
-  //     <div className="shelter col-sm-6 col-lg-4" key={i}>
-  //       <h4 className="shelterName">{s.name}</h4>
-  //       <p>{s.phone}</p>
-  //       <p>Address: {s.street}, {s.city}, {s.state} {s.zipcode}</p>
-  //       <Link to={"/state/" + s._id}>View</Link>
-  //       <p>Shelter ID: {s._id}</p>
-  //       <button onClick={() => props.deleteShelter(s._id)}>Remove</button>
-  //     </div>
-  //   );
-  // });
-
   let shelterTableRows = props.shelters.map((s, i) => {
     let googleDir = "https://maps.google.com?saddr=Current+Location&daddr="
     return (
@@ -34,7 +21,6 @@ function ListofShelters(props) {
     <div className="table-responsive white">
       <h1 className="text-center">Shelters by State</h1>
       <h2 className="text-left">Texas</h2>
-      {/* {shelterDivs} */}
       <table className="table table-striped table-hover text-left ">
         <thead>
           <tr>

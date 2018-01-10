@@ -12,7 +12,7 @@ class MapContainer extends React.Component {
   render() {
     return (
       <div className="mapDiv white">
-        <h1>Shelter Map</h1>
+        <h2 className="text-left">Surrounding Area</h2>
         <GoogleMapContainer google={this.props.google} />
       </div>
     );
