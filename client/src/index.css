@@ -39,6 +39,10 @@ a:hover {
   text-decoration: none;
 }
 
+select {
+  width: 156px;
+}
+
 .white {
   background-color: #fff;
   border: .5px solid #f7f7f7;
@@ -99,8 +103,7 @@ a:hover {
 .submitDiv {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  /* align-items: flex-start; */
+  align-items: flex-end;
   width: auto;
   border: 1px solid #EE7674;
   padding: 4%;

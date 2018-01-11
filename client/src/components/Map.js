@@ -34,7 +34,7 @@ class Map extends React.Component {
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
-      let zoom = 14;
+      let zoom = 10;
       let lat = position.lat;
       let lng = position.lng;
       const center = new maps.LatLng(lat, lng);
@@ -43,32 +43,40 @@ class Map extends React.Component {
         zoom: zoom,
       });
 
-      this.map = new maps.Map(node, mapConfig);
+      const map = new maps.Map(node, mapConfig);
 
       // new marker test
-      const marker = new google.maps.Marker({
-        position: {
-          lat: lat,
-          lng: lng
-        },
-        map: this.map,
-        title: "Hello World!"
-      });
+      // const marker = new google.maps.Marker({
+      //   position: {
+      //     lat: lat,
+      //     lng: lng
+      //   },
+      //   map: map,
+      //   title: "Hello World!"
+      // });
 
       // geocode
       const geocoder = new google.maps.Geocoder();
       // from shelter array
       this.props.shelters.map((s, i) => {
         let address = `${s.street} ${s.city}, ${s.state}`;
-        console.log(address);
         // geocode code
         geocoder.geocode( { "address": address}, function(results, status) {
           console.log(`starting geocode`);
           if (status === "OK") {
             console.log(results[0].geometry.location.lat);
             let marker = new google.maps.Marker({
-              map: this.map,
-              position: results[0].geometry.location
+              map: map,
+              position: {
+                lat: results[0].geometry.location.lat(),
+                lng: results[0].geometry.location.lng()
+              }
+            });
+            let infowindow = new google.maps.InfoWindow({
+              content: `<h3>${s.name}</h3>`
+            });
+            marker.addListener('click', function() {
+              infowindow.open(this.map, marker);
             });
           } else {
             alert("Geocode was not successful for the following reason: " + status + " for " + address);
