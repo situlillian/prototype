@@ -1,7 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
-import {Navbar, Nav} from "react-bootstrap";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 function NavbarTop() {
   return (
@@ -14,9 +12,9 @@ function NavbarTop() {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <NavLink to="/">
+          <Link to="/">
             <p className="logo">Safe Space</p>
-          </NavLink>
+          </Link>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">

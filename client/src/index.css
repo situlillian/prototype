@@ -43,22 +43,30 @@ select {
   width: 156px;
 }
 
+.containerHeight {
+  height: 80vh;
+  overflow-x: scroll;
+}
+
 .white {
   background-color: #fff;
   border: .5px solid #f7f7f7;
   margin-bottom: 1em;
   padding: 1em;
+  height: 90%
 }
 
 .footer {
-  /* position:fixed; */
   padding: 2em;
   left:0px;
   bottom:0px;
   width:100%;
-  height: 5em;
+  height: 10vh;
   background-color: #ebebeb;
   border-top: .5px solid #DBDBDB;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .9em;
+  color: #424242;
 }
 
 .shelterName {
@@ -72,7 +80,7 @@ select {
 .navText {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  color: #424242;
+  color: #bdbdbd;
   font-size: 1.2em;
   text-transform: uppercase;
 }
@@ -87,18 +95,11 @@ select {
   font-weight: bold;
   font-size: 3em;
 }
-.logo:hover {
-
-}
 
 .shelter {
   border: 1px solid black;
   margin-bottom: 2em;
 }
-
-/* .mapDiv {
-  border: 2px solid green;
-} */
 
 .submitDiv {
   display: flex;
@@ -118,22 +119,14 @@ select {
   background-color: #ebebeb;
 }
 
-.footer {
-  font-family: 'Open Sans', sans-serif;
-  font-size: .9em;
-  color: #424242;
-}
-
 .nav > li {
   border-bottom: 4px solid #f7f7f7;
 }
 
-/* .nav > li:hover {
-  border-bottom: 4px solid #EE7674;
-  color: #424242;
-} */
-
 .active {
   border-bottom: 4px solid #EE7674;
+}
+
+.active > p {
   color: #424242;
 }

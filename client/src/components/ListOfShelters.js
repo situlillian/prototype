@@ -40,7 +40,7 @@ function ListofShelters(props) {
   );
 }
 
-ListofShelters.PropTypes = {
+ListofShelters.propTypes = {
   shelters: PropTypes.array.isRequired
 };
 

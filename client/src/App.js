@@ -25,7 +25,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <NavbarTop />
-          <div className="container">
+          <div className="container containerHeight">
             <Switch>
               <Route exact path="/" component={MapContainerContainer} />
               <Route exact path="/state" component={ListOfSheltersContainer} />

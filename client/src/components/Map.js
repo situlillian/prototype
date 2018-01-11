@@ -13,6 +13,7 @@ class Map extends React.Component {
       }
     };
   }
+
   componentDidMount() {
     this.loadMap();
     console.log(this.props.shelters);
@@ -34,52 +35,163 @@ class Map extends React.Component {
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
-      let zoom = 10;
+      let zoom = 9;
       let lat = position.lat;
       let lng = position.lng;
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
         zoom: zoom,
+        mapTypeControlOptions: {
+          mapTypeIds: ['roadmap', 'hybrid', 'terrain', 'styled_map']
+        }
       });
 
+      // custom map styling
+      var styledMapType = new google.maps.StyledMapType(
+        [
+          {elementType: 'geometry', stylers: [{color: '#fff'}]},
+          {elementType: 'labels.text.fill', stylers: [{color: '#616161'}]},
+          {elementType: 'labels.text.stroke', stylers: [{color: ''}]},
+          {
+            featureType: 'administrative',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#ebebeb'}]
+          },
+          {
+            featureType: 'administrative.land_parcel',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#f7f7f7'}]
+          },
+          {
+            featureType: 'administrative.land_parcel',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#f7f7f7'}]
+          },
+          {
+            featureType: 'landscape.natural',
+            elementType: 'geometry',
+            stylers: [{color: '#f7f7f7'}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'geometry',
+            stylers: [{color: '#f7f7f7'}]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ee7674'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'geometry.fill',
+            stylers: [{color: '#f7f7f7'}]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#ee7674'}]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{color: '#EBEBEB'}]
+          },
+          {
+            featureType: 'road.arterial',
+            elementType: 'geometry',
+            stylers: [{color: '#fdfcf8'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{color: '#EBEBEB'}]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#EBEBEB'}]
+          },
+          {
+            featureType: 'road.highway.controlled_access',
+            elementType: 'geometry',
+            stylers: [{color: '#EBEBEB'}]
+          },
+          {
+            featureType: 'road.highway.controlled_access',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#EBEBEB'}]
+          },
+          {
+            featureType: 'road.local',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#bdbdbd'}]
+          },
+          {
+            featureType: 'transit.line',
+            elementType: 'geometry',
+            stylers: [{color: '#bdbdbd'}]
+          },
+          {
+            featureType: 'transit.line',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#BDBDBD'}]
+          },
+          {
+            featureType: 'transit.line',
+            elementType: 'labels.text.stroke',
+            stylers: [{color: ''}]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'geometry',
+            stylers: [{color: '#ebebeb'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry.fill',
+            stylers: [{color: '#EBEBEB'}]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#92998d'}]
+          }
+        ],
+        {name: 'Styled Map'});
+
       const map = new maps.Map(node, mapConfig);
+      map.mapTypes.set('styled_map', styledMapType);
+      map.setMapTypeId('styled_map');
 
-      // new marker test
-      // const marker = new google.maps.Marker({
-      //   position: {
-      //     lat: lat,
-      //     lng: lng
-      //   },
-      //   map: map,
-      //   title: "Hello World!"
-      // });
-
-      // geocode
+      // geocode from shelter array
       const geocoder = new google.maps.Geocoder();
-      // from shelter array
       this.props.shelters.map((s, i) => {
         let address = `${s.street} ${s.city}, ${s.state}`;
         // geocode code
         geocoder.geocode( { "address": address}, function(results, status) {
           console.log(`starting geocode`);
           if (status === "OK") {
-            console.log(results[0].geometry.location.lat);
+            let pos = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng()
+            };
             let marker = new google.maps.Marker({
               map: map,
-              position: {
-                lat: results[0].geometry.location.lat(),
-                lng: results[0].geometry.location.lng()
-              }
+              position: pos
+              // icon: "https://mediavinemarketing.com/wp-content/uploads/2016/02/map-marker-icon.png"
             });
             let infowindow = new google.maps.InfoWindow({
-              content: `<h3>${s.name}</h3>`
+              content: `<p>${s.name}</p><p>${s.street} ${s.city}, ${s.state} ${s.zipcode}</p><p>${s.phone}</p>`,
+              maxWidth: 200
             });
             marker.addListener('click', function() {
               infowindow.open(this.map, marker);
+              map.setCenter(marker.getPosition());
             });
           } else {
-            alert("Geocode was not successful for the following reason: " + status + " for " + address);
+            console.log("Geocode was not successful for the following reason: " + status + " for " + address);
           }
         });
       });
@@ -90,7 +202,7 @@ class Map extends React.Component {
     // map style
     const style = {
       width: "100%",
-      height: "50vh"
+      height: "60vh"
     };
 
     // render

@@ -1,7 +1,6 @@
 export function loadShelters() {
   return function (dispatch) {
     fetch("/state").then((res) => {
-      console.log("loaded function");
       return res.json();
     }).then((shelters) => {
       dispatch(sheltersLoaded(shelters));
