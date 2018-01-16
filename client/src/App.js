@@ -12,8 +12,7 @@ import Banner from "./components/Banner";
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -21,7 +20,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <BrowserRouter>
         <div className="App">
