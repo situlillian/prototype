@@ -183,7 +183,7 @@ class Map extends React.Component {
               // icon: "https://mediavinemarketing.com/wp-content/uploads/2016/02/map-marker-icon.png"
             });
             let infowindow = new google.maps.InfoWindow({
-              content: `<p>${s.name}</p><p>${s.street} ${s.city}, ${s.state} ${s.zipcode}</p><p>${s.phone}</p>`,
+              content: `<p>${s.name}</p><p>${s.street} ${s.city}, ${s.state} ${s.zipcode}</p><p>${s.phone}</p><p><a target="blank" href=${s.website}>${s.website}</a></p>`,
               maxWidth: 200
             });
             marker.addListener('click', function() {

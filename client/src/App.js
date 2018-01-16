@@ -7,6 +7,7 @@ import ListOfSheltersContainer from "./containers/ListOfSheltersContainer";
 import About from "./components/About";
 import Create from "./components/Create";
 import Footer from "./components/Footer";
+import Banner from "./components/Banner";
 
 class App extends Component {
   constructor() {
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Banner />
           <NavbarTop />
           <div className="container containerHeight">
             <Switch>

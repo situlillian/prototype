@@ -130,3 +130,13 @@ select {
 .active > p {
   color: #424242;
 }
+
+.banner {
+  background-color: #EE7674;
+  padding: 20px;
+  color: #fff;
+}
+
+.fixedBanner {
+  margin:0px auto;
+}

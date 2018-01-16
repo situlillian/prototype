@@ -10,7 +10,7 @@ function ListofShelters(props) {
         <td><p>{s.name}</p></td>
         <td><p><a href={`${googleDir}${s.street}+${s.city}+${s.state}+${s.zipcode}`} target="blank">{s.street}</a></p></td>
         <td><p>{s.city}</p></td>
-        <td><p><a href={s.website}>{s.website}</a></p></td>
+        <td><p><a target="blank" href={s.website}>{s.website}</a></p></td>
         <td><p>{s.phone}</p></td>
         <td><button onClick={() => props.deleteShelter(s._id)}>Remove</button></td>
       </tr>
