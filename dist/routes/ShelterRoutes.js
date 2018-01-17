@@ -15,6 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 
 router.get("/state", _ShelterController.list);
+router.get("/", _ShelterController.list);
 router.get("/state/:id", _ShelterController.show);
 router.post("/state", _ShelterController.create);
 router.delete("/state/:id", _ShelterController.remove);

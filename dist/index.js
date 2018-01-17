@@ -26,7 +26,7 @@ require("dotenv").config();
 
 _mongoose2.default.set("debug", true);
 _mongoose2.default.Promise = global.Promise;
-_mongoose2.default.connect("mongodb://localhost/womenshelters");
+_mongoose2.default.connect("mongodb://situlillian:situlillian@ds253587.mlab.com:53587/safespace");
 
 var app = (0, _express2.default)();
 app.use(_bodyParser2.default.json());
