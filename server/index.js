@@ -9,6 +9,7 @@ import ShelterRoutes from "./routes/ShelterRoutes";
 
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
+// TODO: mlab and heroku
 mongoose.connect("mongodb://situlillian:situlillian@ds253587.mlab.com:53587/safespace");
 
 const app = express();
