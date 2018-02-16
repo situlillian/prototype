@@ -14,7 +14,7 @@ mongoose.connect("mongodb://situlillian:situlillian@ds253587.mlab.com:53587/safe
 
 const app = express();
 app.use(bodyParser.json());
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 // app.get("*", (req, res, next) => {
 //   res.sendFile("public/index.html");

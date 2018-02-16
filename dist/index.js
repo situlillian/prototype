@@ -31,7 +31,7 @@ _mongoose2.default.connect("mongodb://situlillian:situlillian@ds253587.mlab.com:
 
 var app = (0, _express2.default)();
 app.use(_bodyParser2.default.json());
-// app.use(express.static("public"));
+app.use(_express2.default.static("public"));
 
 // app.get("*", (req, res, next) => {
 //   res.sendFile("public/index.html");
